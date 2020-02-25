@@ -21,9 +21,9 @@ router.post('/register',[
         if(!errors.isEmpty()){
             return res.status(400).json({errors: errors.array(),massage: 'Некоректные данние'})
         }
-         const {email, password} = req.body
+         const {email, password, username, phonenumber} = req.body
          
-         const candidate = await User.findOne({email})
+         const candidate = await User.findOne({email, password})
          
 
          if(candidate){
@@ -31,7 +31,7 @@ router.post('/register',[
          }
 
          const hashedPassword = await bcrypt.hash(password, 12)
-         const user = new User({email, password: hashedPassword })
+         const user = new User({email, password: hashedPassword, username, phonenumber })
 
          
          await user.save()
