@@ -5,6 +5,7 @@ import { Row, Col, Button } from 'antd';
 import ArticleList from './components/Article/ArticleList';
 import Widget from './components/Widget/AuthInWidget';
 import TopKomentWidget from './components/Widget/TopKoments';
+import AuthOutWidget from './components/Widget/AuthOutWidget'
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <Col span='7'>       {/*  WIDGET COL  */}
             <Widget/>
             <Button style={{width: '94%', margin: "0 6%"}} type="primary" icon="plus">ДОБАВИТЬ ПОСТ</Button>
+            <AuthOutWidget/>
             <TopKomentWidget/>
           </Col>
         </Row>

@@ -38,7 +38,7 @@ router.post('/register',[
 
          res.status(201).json({massage: 'User creates sucsess'})
     }catch(e){
-        res.status(500).json({massage: 'Somethin went wron('})
+        res.status(500).json({massage: `Somethin went wron: ${e}`})
     }
 } )
 

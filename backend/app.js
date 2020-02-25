@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/auth', require('./routes/router'))
-//app.use(express.json({extended: true}))
+app.use(express.json({extended: true}))
 
 
 async function start(){
