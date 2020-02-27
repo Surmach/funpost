@@ -22,6 +22,16 @@ const AuthOutWidget = () => {
     } catch (e) {}
   };
 
+  const loginHandler = async () =>{
+    try{
+      const data = await request('api/auth/login', 'POST', {...authForm})
+      console.log(data)
+      
+    }catch(e){
+
+    }
+  }
+
   const handleSubmit = event => {
     event.preventDefault();
   };
@@ -150,7 +160,7 @@ const AuthOutWidget = () => {
 
             <Form.Item>
               <LoginButton
-                onClick={registerHandler}
+                onClick={loginHandler}
                 disabled={loading}
                 type="primary"
                 htmlType="submit"
