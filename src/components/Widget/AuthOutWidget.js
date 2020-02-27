@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { Input, Form, Button, Typography, Row, Col } from "antd";
 import request from "../../hooks/http";
 import { useHttp } from "../../hooks/http";
 import Title from "antd/lib/skeleton/Title";
+import { AuthContext } from "../../context/AuthContext";
 
 const AuthOutWidget = () => {
   const { loading, errors, request } = useHttp();
-
+  const auth = useContext(AuthContext)
   const [authForm, setAuthForm] = useState({
     email: "",
     password: "",
@@ -26,7 +27,8 @@ const AuthOutWidget = () => {
     try{
       const data = await request('api/auth/login', 'POST', {...authForm})
       console.log(data)
-      
+      //ЯКАСЬ ХУЙНЯ З ТОКЕНОМ tocen token
+       auth.login(data.tocen, data.userId)   
     }catch(e){
 
     }
